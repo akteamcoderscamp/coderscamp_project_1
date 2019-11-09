@@ -24,7 +24,7 @@ var cards= new Array();
 var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
 for (i=0; i<suits.length; i++){
-    for (j=2 ; j<15 ; j++){
+    for (j=2; j<15 ; j++){
         if(j<11){
             var value=j;
             var name=value.toString();
