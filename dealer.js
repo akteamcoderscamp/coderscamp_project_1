@@ -1,25 +1,16 @@
 //TODO: move into some general file
 function Player(name){  //dealer is also a player with the name deale
     this.name = name;
-    points = 0;
-    cards = [];
-    blackJack = false;
-    win = false;   // draw will be when both playes losts so for both win=false
+    this.points = 0;
+    this.cards = [];
+    this.blackJack = false;
+    this.win = false;   // draw will be when both playes losts so for both win=false
 } 
 
 const dealer = new Player("Dealer");
-dealer.cards[0] = 'A';
-dealer.cards[1] = 'K';
-dealer.points = 21;
 
-
-const checkBlackJack = (player) => {
-    if (player.cards.lenght == 2) {
-        if(player.points = 21)
-            return true;
-    }else return false;
-      
-}
+// "blackjack" is the highest hand, consisting of an ace and any 10-point card, and it outranks all other 21-point hands
+const checkBlackJack = (player) => player.cards.length == 2 && player.points == 21 ? true: false; 
 
 /*
 logic for dealer play with already 2 cards on the table, but one faced-down
@@ -34,5 +25,3 @@ const playDealer = (points) =>{
     if(checkBlackJack(dealer)) return dealer.blackJack = true;
     while (points < 17) takeCard();  //takeCard is an algorithm for picing a card and then sum up the points
 }
-
-console.log(checkBlackJack(dealer));
