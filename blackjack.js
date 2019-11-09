@@ -14,7 +14,7 @@ console.log(dealer, player)
 
 //definiowanie kart
 class card{
-    constructor(suit,name, value){
+    constructor(suit, name, value){
     this.suit = suit;
     this.name = name;
     this.value = value;
