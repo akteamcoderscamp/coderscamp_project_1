@@ -50,6 +50,7 @@ for (i=0; i<suits.length; i++){
 
 //losowanie kart dla graczy
 function cardDraw(){
+    if (player.points < 21 && dealer.points < 21) {
     // for player
     var numP = Math.floor(Math.random()*deck.length);
     var drewCardP = deck[numP];
@@ -71,18 +72,51 @@ function cardDraw(){
     // porównywanie
     if (dealer.points >= 21 || player.points >= 21) {
     if (player.points === dealer.points) {console.log('a tie')}
-        else if (player.cards.length === 2 && player.points === 21) {console.log('player blackjack')}
-        else if (dealer.cards.length === 2 && dealer.points === 21) {console.log('dealer blackJack')}
+        else if (player.cards.length === 2 && player.points === 21) {player.blackJack = true}
+        else if (dealer.cards.length === 2 && dealer.points === 21) {dealer.blackJack = true}
         else {
-            if (player.points > dealer.points) {console.log('player wins')}
-            else {console.log('dealer wins')}
+            if (player.points < dealer.points) {player.win = true}
+            else {dealer.win = true}
         }
     }
 }
+}
 
+// Do testowania sobie
 cardDraw();
 console.log(player.points)
 console.log(dealer.points)
+console.log(player.blackJack)
+console.log(dealer.blackJack)
+console.log(player.win)
+console.log(dealer.win)
+
+if (player.points < 21 && dealer.points < 21) {
 cardDraw();
 console.log(player.points)
 console.log(dealer.points)
+console.log(player.blackJack)
+console.log(dealer.blackJack)
+console.log(player.win)
+console.log(dealer.win)}
+
+if (player.points < 21 && dealer.points < 21) {
+cardDraw();
+console.log(player.points)
+console.log(dealer.points)
+console.log(player.blackJack)
+console.log(dealer.blackJack)
+console.log(player.win)
+console.log(dealer.win)}
+
+if (player.points < 21 && dealer.points < 21) {
+    cardDraw();
+    console.log(player.points)
+    console.log(dealer.points)
+    console.log(player.blackJack)
+    console.log(dealer.blackJack)
+    console.log(player.win)
+    console.log(dealer.win)}
+    
+
+
