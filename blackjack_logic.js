@@ -47,59 +47,57 @@ for (i=0; i<suits.length; i++){
     
 }
 
-
-//losowanie kart dla graczy
+//okienko z wynikiem?
+let scoreWindow = document.getElementById('score')
+scoreWindow.hidden = true;
+//gra
 
 function hold(){
     if (player.points < 21 && dealer.points < 21 && dealer.points < player.points) {
-        dealerCardDraw();
+        cardDraw(dealer);
         checkScore();
 } else {console.log('both hold')}
 }
 
 function add(){
     if (player.points < 21 && dealer.points < 21) {
-        playerCardDraw();
-        console.log(player.points)
-        dealerCardDraw();
-        console.log(dealer.points)
+        cardDraw(player);
+        cardDraw(dealer);
         checkScore();
-        console.log(player.win)
-        console.log(dealer.win)
 }
 }
 
-function playerCardDraw(){
-    var numP = Math.floor(Math.random()*deck.length);
-    var drewCardP = deck[numP];
-    if (drewCardP.name === "A" && player.points > 10){
-        drewCardP.value = 1;
-    } else if (drewCardP.name === "A" && player.points <= 10) {
-        drewCardP.value = 11;}
-    player.cards.push(drewCardP);
-    player.points = player.points + drewCardP.value;
-    if (player.cards.length === 2 && player.points === 21) {player.blackJack = true};
-    document.getElementById('PPoints').innerHTML = player.points;
-}
-
-function dealerCardDraw(){
-    var numD = Math.floor(Math.random()*deck.length);
-    let drewCardD = deck[numD];
-    if (drewCardD.name === "A" && dealer.points > 10){
-        drewCardD.value = 1;
-    } else if (drewCardD.name === "A" && dealer.points <= 10) {
-        drewCardD.value = 11;}
-    dealer.cards.push(drewCardD);
-    dealer.points = dealer.points + drewCardD.value;
-    if (dealer.cards.length === 2 && dealer.points === 21) {dealer.blackJack = true};
-    document.getElementById('DPoints').innerHTML = dealer.points;
+function cardDraw(person){
+    var num = Math.floor(Math.random()*deck.length);
+    var drewCard = deck[num];
+    if (drewCard.name === "A" && person.points > 10){
+        drewCard.value = 1;
+    } else if (drewCard.name === "A" && person.points <= 10) {
+        drewCard.value = 11;}
+    person.cards.push(drewCard);
+    person.points = person.points + drewCard.value;
+    if (person.cards.length === 2 && person.points === 21) {person.blackJack = true};
+    document.getElementById(person.name).innerHTML = person.points;
 }
 
 function checkScore(){
-    if (dealer.points >= 21 || player.points >= 21) {
-        if (player.points === dealer.points) {console.log('a tie')} else {
-                if (player.points < dealer.points) {player.win = true}
-                else {dealer.win = true}
-            }
+    if (player.points >= 21 || dealer.points >=21){
+    if (player.blackJack == true && dealer.blackJack == false) {scoreWindow.innerHTML = "Player\'s BlackJack"}
+    else if (dealer.blackJack == true && player.blackJack == false) {scoreWindow.innerHTML = "Dealer\'s BlackJack"}
+    else if (player.blackJack == true && dealer.blackJack == true)
+    {scoreWindow.innerHTML = "A tie"}
+    else {
+        if (dealer.points > 21 && player.points > 21)
+        {scoreWindow.innerHTML = "Nobody wins tonight..."}
+        else if (dealer.points > 21 && player.points < 21)
+        {scoreWindow.innerHTML = "Player winns!"}
+        else if (dealer.points < 21 && player.points > 21)
+        {scoreWindow.innerHTML = "Dealer won..."}
+        else {
+            console.log('what happens when nobody goes over 21?')
         }
-}
+
+    }    
+            scoreWindow.hidden = false;
+        }
+    }
