@@ -49,9 +49,27 @@ for (i=0; i<suits.length; i++){
 
 
 //losowanie kart dla graczy
-function cardDraw(){
+
+function hold(){
+    if (player.points < 21 && dealer.points < 21 && dealer.points < player.points) {
+        dealerCardDraw();
+        checkScore();
+} else {console.log('both hold')}
+}
+
+function add(){
     if (player.points < 21 && dealer.points < 21) {
-    // for player
+        playerCardDraw();
+        console.log(player.points)
+        dealerCardDraw();
+        console.log(dealer.points)
+        checkScore();
+        console.log(player.win)
+        console.log(dealer.win)
+}
+}
+
+function playerCardDraw(){
     var numP = Math.floor(Math.random()*deck.length);
     var drewCardP = deck[numP];
     if (drewCardP.name === "A" && player.points > 10){
@@ -60,7 +78,11 @@ function cardDraw(){
         drewCardP.value = 11;}
     player.cards.push(drewCardP);
     player.points = player.points + drewCardP.value;
-    // for Dealer
+    if (player.cards.length === 2 && player.points === 21) {player.blackJack = true};
+    document.getElementById('PPoints').innerHTML = player.points;
+}
+
+function dealerCardDraw(){
     var numD = Math.floor(Math.random()*deck.length);
     let drewCardD = deck[numD];
     if (drewCardD.name === "A" && dealer.points > 10){
@@ -69,54 +91,15 @@ function cardDraw(){
         drewCardD.value = 11;}
     dealer.cards.push(drewCardD);
     dealer.points = dealer.points + drewCardD.value;
-    // porównywanie
+    if (dealer.cards.length === 2 && dealer.points === 21) {dealer.blackJack = true};
+    document.getElementById('DPoints').innerHTML = dealer.points;
+}
+
+function checkScore(){
     if (dealer.points >= 21 || player.points >= 21) {
-    if (player.points === dealer.points) {console.log('a tie')}
-        else if (player.cards.length === 2 && player.points === 21) {player.blackJack = true}
-        else if (dealer.cards.length === 2 && dealer.points === 21) {dealer.blackJack = true}
-        else {
-            if (player.points < dealer.points) {player.win = true}
-            else {dealer.win = true}
+        if (player.points === dealer.points) {console.log('a tie')} else {
+                if (player.points < dealer.points) {player.win = true}
+                else {dealer.win = true}
+            }
         }
-    }
 }
-}
-
-// Do testowania sobie
-cardDraw();
-console.log(player.points)
-console.log(dealer.points)
-console.log(player.blackJack)
-console.log(dealer.blackJack)
-console.log(player.win)
-console.log(dealer.win)
-
-if (player.points < 21 && dealer.points < 21) {
-cardDraw();
-console.log(player.points)
-console.log(dealer.points)
-console.log(player.blackJack)
-console.log(dealer.blackJack)
-console.log(player.win)
-console.log(dealer.win)}
-
-if (player.points < 21 && dealer.points < 21) {
-cardDraw();
-console.log(player.points)
-console.log(dealer.points)
-console.log(player.blackJack)
-console.log(dealer.blackJack)
-console.log(player.win)
-console.log(dealer.win)}
-
-if (player.points < 21 && dealer.points < 21) {
-    cardDraw();
-    console.log(player.points)
-    console.log(dealer.points)
-    console.log(player.blackJack)
-    console.log(dealer.blackJack)
-    console.log(player.win)
-    console.log(dealer.win)}
-    
-
-
