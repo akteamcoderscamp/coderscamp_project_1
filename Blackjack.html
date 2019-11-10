@@ -10,30 +10,31 @@
 <body>
     <div class="cover">
     <img class="bg" src="img/table.png">
-    <a href="tryAgain.html"><div class="textBox largeBox">
+    <div class="textBox largeBox">
         <img class="blur largeBox"></img>
         <div class="dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot redDot"></div>
+          <a href="BJ_rules.html"><div class="dot"></div></a>
+          <a href="BJ_rules2.html"><div class="dot"></div></a>
+          <a href="BJ_history.html"><div class="dot"></div></a>
+          <a href="BJ_history2.html"><div class="dot"></div></a>
+          <div class="dot redDot"></div>
         </div>
 
-        <div class="add btnRound"><div class="blur btnRound"></div><img src="img/plus.png"></div>
+        <div onclick = "add();" class="add btnRound"><div class="blur btnRound"></div><img src="img/plus.png"></div>
 
-        <div class="hold btnRound"><div class="blur btnRound"></div><img src="img/hand.png"></div>
+        <div onclick = "hold();" class="hold btnRound"><div class="blur btnRound"></div><img src="img/hand.png"></div>
 
-        <div class="points numPlayerPoints"><div class="blur points"></div><p>4</p></div>
+        <div class="points numPlayerPoints"><div class="blur points"></div><p id="PPoints">0</p></div>
         <div class="card playerCard1"></div>
         <div class="card playerCard2"></div>
 
-        <div class="points numDealerPoints"><div class="blur points"></div><p>21</p></div>
+        <div class="points numDealerPoints"><div class="blur points"></div><p id="DPoints">0</p></div>
         <div class="card dealerCard1"></div>
         <div class="card dealerCard2"></div>
         
-    </div></a>
+    </div>
     </div>
 
+<script src="blackjack_logic.js"></script>
 </body>
 </html>

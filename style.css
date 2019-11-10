@@ -262,6 +262,7 @@ html {
   .add{
     top: 20vh;
     position: absolute;
+    cursor: pointer;
   }
   .add img{
     position: absolute;
@@ -272,6 +273,7 @@ html {
 
   .hold{
     bottom: 10vh;
+    cursor: pointer;
   }
 
   .hold img{
