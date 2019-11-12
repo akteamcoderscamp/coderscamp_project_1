@@ -81,23 +81,27 @@ function cardDraw(person){
 }
 
 function checkScore(){
-    if (player.points >= 21 || dealer.points >=21){
-    if (player.blackJack == true && dealer.blackJack == false) {scoreWindow.innerHTML = "Player\'s BlackJack"}
-    else if (dealer.blackJack == true && player.blackJack == false) {scoreWindow.innerHTML = "Dealer\'s BlackJack"}
-    else if (player.blackJack == true && dealer.blackJack == true)
-    {scoreWindow.innerHTML = "A tie"}
-    else {
-        if (dealer.points > 21 && player.points > 21)
-        {scoreWindow.innerHTML = "Nobody wins tonight..."}
-        else if (dealer.points > 21 && player.points < 21)
-        {scoreWindow.innerHTML = "Player winns!"}
-        else if (dealer.points < 21 && player.points > 21)
-        {scoreWindow.innerHTML = "Dealer won..."}
+    if ((player.points >= 17 && dealer.points >=17) || (player.points >=21 || dealer.points >=21)) { 
+        if (player.blackJack == true && dealer.blackJack == false) {scoreWindow.innerHTML = "Player\'s BlackJack"}
+        else if (dealer.blackJack == true && player.blackJack == false) {scoreWindow.innerHTML = "Dealer\'s BlackJack"}
+        else if (player.blackJack == true && dealer.blackJack == true)
+        {scoreWindow.innerHTML = "A tie"}
+        else if (player.points > 21 || dealer.points > 21) {
+            if (dealer.points > 21 && player.points > 21)
+            {scoreWindow.innerHTML = "Nobody wins tonight..."}
+            else if (dealer.points > 21 && player.points < 21)
+            {scoreWindow.innerHTML = "Player winns!"}
+            else if (dealer.points < 21 && player.points > 21)
+            {scoreWindow.innerHTML = "Dealer won..."}
+        }
         else {
-            console.log('what happens when nobody goes over 21?')
-        }
-
+            if (dealer.points == player.points)
+            {scoreWindow.innerHTML = "A tie"}
+            else if (dealer.points < player.points)
+            {scoreWindow.innerHTML = "Player winns!"}
+            else if (dealer.points > player.points)
+            {scoreWindow.innerHTML = "Dealer won..."}   
+            }
+        scoreWindow.hidden = false;
     }    
-            scoreWindow.hidden = false;
-        }
     }
