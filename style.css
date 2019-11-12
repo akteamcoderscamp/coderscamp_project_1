@@ -341,7 +341,7 @@ html {
     top: 48vh;
   }
 
-  #score{
+  .score{
     position: absolute;
     top: 40%;
     right: 25%;

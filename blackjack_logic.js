@@ -48,8 +48,10 @@ for (i=0; i<suits.length; i++){
 }
 
 //okienko z wynikiem?
-let scoreWindow = document.getElementById('score')
-scoreWindow.hidden = true;
+let scoreWin = document.getElementById('win')
+scoreWin.hidden = true;
+let scoreLoose = document.getElementById('loose')
+scoreLoose.hidden = true;
 //gra
 
 function hold(){
@@ -80,28 +82,55 @@ function cardDraw(person){
     document.getElementById(person.name).innerHTML = person.points;
 }
 
+// function checkScore(){
+//     if ((player.points >= 17 && dealer.points >=17) || (player.points >=21 || dealer.points >=21)) { 
+//         if (player.blackJack == true && dealer.blackJack == false) {scoreWindow.innerHTML = "Player\'s BlackJack"}
+//         else if (dealer.blackJack == true && player.blackJack == false) {scoreWindow.innerHTML = "Dealer\'s BlackJack"}
+//         else if (player.blackJack == true && dealer.blackJack == true)
+//         {scoreWindow.innerHTML = "A tie"}
+//         else if (player.points > 21 || dealer.points > 21) {
+//             if (dealer.points > 21 && player.points > 21)
+//             {scoreWindow.innerHTML = "Nobody wins tonight..."}
+//             else if (dealer.points > 21 && player.points < 21)
+//             {scoreWindow.innerHTML = "Player winns!"}
+//             else if (dealer.points < 21 && player.points > 21)
+//             {scoreWindow.innerHTML = "Dealer won..."}
+//         }
+//         else {
+//             if (dealer.points == player.points)
+//             {scoreWindow.innerHTML = "A tie"}
+//             else if (dealer.points < player.points)
+//             {scoreWindow.innerHTML = "Player winns!"}
+//             else if (dealer.points > player.points)
+//             {scoreWindow.innerHTML = "Dealer won..."}   
+//             }
+//         scoreWindow.hidden = false;
+//     }    
+//     }
 function checkScore(){
-    if ((player.points >= 17 && dealer.points >=17) || (player.points >=21 || dealer.points >=21)) { 
-        if (player.blackJack == true && dealer.blackJack == false) {scoreWindow.innerHTML = "Player\'s BlackJack"}
-        else if (dealer.blackJack == true && player.blackJack == false) {scoreWindow.innerHTML = "Dealer\'s BlackJack"}
-        else if (player.blackJack == true && dealer.blackJack == true)
-        {scoreWindow.innerHTML = "A tie"}
-        else if (player.points > 21 || dealer.points > 21) {
-            if (dealer.points > 21 && player.points > 21)
-            {scoreWindow.innerHTML = "Nobody wins tonight..."}
-            else if (dealer.points > 21 && player.points < 21)
-            {scoreWindow.innerHTML = "Player winns!"}
-            else if (dealer.points < 21 && player.points > 21)
-            {scoreWindow.innerHTML = "Dealer won..."}
-        }
-        else {
-            if (dealer.points == player.points)
-            {scoreWindow.innerHTML = "A tie"}
-            else if (dealer.points < player.points)
-            {scoreWindow.innerHTML = "Player winns!"}
-            else if (dealer.points > player.points)
-            {scoreWindow.innerHTML = "Dealer won..."}   
-            }
-        scoreWindow.hidden = false;
-    }    
+    if ((player.points >= 17 && dealer.points >=17) || (player.points >=21 || dealer.points >=21)) {
+        if (dealer.blackJack == true && player.blackJack == true) {player.win = true; dealer.win = true;
+        console.log('1')}
+        else if (dealer.blackJack == true) {dealer.win = true; console.log('2')}
+        else if (player.blackJack == true) {player.win = true; console.log('3')}
+        else if (player.points > 21 && dealer.points <= 21) {dealer.win = true; console.log('4')}
+        else if (player.points <= 21 && dealer.points > 21) {player.win = true; console.log('5')}
+        else if (player.points <=21 && dealer.points <=21) {
+            if (player.points > dealer.points) {player.win = trueconsole.log('6')}
+            else if (player.points < dealer.points) {dealer.win = true; console.log('7')}
+        } else {console.log('both over 21')}
+
+        if (player.win == true && dealer.win == true){
+        scoreLoose.innerHTML = "A tie";
+        scoreLoose.hidden = false;
+        } else if (player.win == false && dealer.win == false) {
+        scoreLoose.innerHTML = "Nobody wins tonight";
+        scoreLoose.hidden = false;
+        } else if (player.win == false && dealer.win == true)
+        {scoreLoose.innerHTML = "Dealer won...";
+        scoreLoose.hidden = false;}
+        else if (player.win == true && dealer.win == false){
+        scoreWin.innerHTML = "Player winns!";
+        scoreWin.hidden = false;}
     }
+    }  
