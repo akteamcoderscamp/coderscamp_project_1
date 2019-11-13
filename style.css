@@ -305,42 +305,74 @@ html {
     left: 1.5vw;
   }
   .numPlayerPoints{
-    top:15vh;
+    top:60vh;
   }
 
   .numDealerPoints{
-    top:60vh;
+    top:15vh;
   }
 
   .card{
     position: absolute;
     width: 9vw;
     height: 27vh;
-    background-color: yellowgreen;
+  }
+  .card img{
+    width: 100%;
+    height: 100%;
   }
 
   .playerCard1{
     left: 13vw;
-    top: 10vh;
-  }
-
-  .playerCard2{
-    background-color: white;
-    left: 19vw;
-    top: 8vh;
-  }
-
-  .dealerCard1{
-    left: 19vw;
     top: 50vh;
   }
 
-  .dealerCard2{
-    background-color: white;
-    left: 13vw;
+  .playerCard2{
+    left: 19vw;
+    top: 48vh;
+  }
+  .playerCard3{
+    left: 25vw;
+    top: 50vh;
+  }
+  .playerCard4{
+    left: 31vw;
+    top: 48vh;
+  }
+  .playerCard5{
+    left: 37vw;
+    top: 50vh;
+  }
+  .playerCard6{
+    left: 43vw;
     top: 48vh;
   }
 
+  .dealerCard1{
+    left: 13vw;
+    top: 10vh;
+  }
+
+  .dealerCard2{
+    left: 19vw;
+    top: 8vh;
+  }
+  .dealerCard3{
+    left: 25vw;
+    top: 10vh;
+  }  
+  .dealerCard4{
+    left: 31vw;
+    top: 8vh;
+  }  
+  .dealerCard5{
+    left: 37vw;
+    top: 10vh;
+  }  
+  .dealerCard6{
+    left: 43vw;
+    top: 8vh;
+  }
   #score{
     position: absolute;
     top: 40%;
