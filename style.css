@@ -304,6 +304,15 @@ html {
     top: -1vh;
     left: 1.5vw;
   }
+
+ @media (max-height: 500px){
+.points p{
+     font-size: 0.7rem;
+     top: -3vh;
+    left: 0;
+    }
+  }
+  
   .numPlayerPoints{
     top:15vh;
   }
