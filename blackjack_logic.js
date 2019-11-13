@@ -78,9 +78,10 @@ function settingCards(){
 
 
 function hold(){
-        if (dealer.cards.length = 1) {cardDraw(dealer)}  //draw 2nd dealer card - the dealers face-down card is turned up.
+        if (dealer.cards.length === 1) {cardDraw(dealer)}  //draw 2nd dealer card - the dealers face-down card is turned up.
         dealer.blackJack = checkBlackJack(dealer)
         if (dealer.blackJack) checkScoreDealer();
+        checkScoreDealer();
         while (dealer.points < 17){
             cardDraw(dealer);
             checkScoreDealer();
@@ -135,18 +136,20 @@ function checkScoreDealer(){
         player.win = true;
         scoreLoose.innerHTML = "A tie.";
         scoreLoose.hidden = false;
-    } else if (dealer.points >= 17){
+    } else if (dealer.points > 16){
         if (player.points > dealer.points) {
-       player.win = true;
-       scoreWin.innerHTML = "You won!";
-       scoreWin.hidden = false;
-        } else if (player.points < dealer.points){
+        player.win = true;
+        scoreWin.innerHTML = "You won!";
+        scoreWin.hidden = false;
+    } else if (player.points < dealer.points){
         dealer.win = true;
         scoreLoose.innerHTML = "The dealer won...";
         scoreLoose.hidden = false;
-        } else {dealer.win = true;
+
+    } else {dealer.win = true;
         player.win = true;
         scoreLoose.innerHTML = "A tie.";
-        scoreLoose.hidden = false;}
+        scoreLoose.hidden = false;
+        console.log('7')}
     } 
 }
