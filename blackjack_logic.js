@@ -25,11 +25,52 @@ class card{
 var deck= new Array();
 var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
+<<<<<<< HEAD
 //okienko z wynikiem?
 let scoreWin = document.getElementById('win')
 scoreWin.hidden = true;
 let scoreLoose = document.getElementById('loose')
 scoreLoose.hidden = true;
+
+//gra
+createDeck();
+settingCards();
+
+
+function createDeck(){
+    for (i=0; i<suits.length; i++){
+        for (j=2; j<15 ; j++){
+            if(j<11){
+                var value=j;
+                var name=value.toString();
+            }else if (j<14){
+                value=10;
+                switch (j){
+                    case 11: name="J";
+                    break;
+                    case 12: name="Q";
+                    break;
+                    case 13: name="K";
+                }
+            }else {
+                value=[1, 11];
+                name="A"
+            }
+        var cardImg = name + suits[i].charAt(0) + ".png";
+        const newCard = new card (suits[i], name, value, cardImg);
+
+        deck.push(newCard)
+        }
+        
+    }
+
+}
+
+=======
+
+//okienko z wynikiem?
+let scoreWindow = document.getElementById('score')
+scoreWindow.hidden = true;
 
 //gra
 createDeck();
@@ -76,7 +117,6 @@ function settingCards(){
     } 
 }
 
-
 function hold(){
         if (dealer.cards.length = 1) {cardDraw(dealer)}  //draw 2nd dealer card - the dealers face-down card is turned up.
         dealer.blackJack = checkBlackJack(dealer)
@@ -90,6 +130,7 @@ function hold(){
         
 function add(){
     if (player.points < 21) {
+<<<<<<< HEAD
         cardDraw(player);
         checkScorePlayer();
 }
