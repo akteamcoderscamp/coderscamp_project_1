@@ -301,7 +301,6 @@ li{
 }
 
 .points p{
-<<<<<<< HEAD
   top: -1vh;
   left: 1.4vw;
 }
@@ -383,6 +382,7 @@ li{
   left: 43vw;
   top: 8vh;
 }
+
 .score{
   position: absolute;
   top: 40%;
