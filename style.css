@@ -385,14 +385,18 @@ li{
 
 .score{
   position: absolute;
-  top: 40%;
+  top: 38%;
   right: 25%;
   width: 40vw;
   height: 20vh;
-  background-color: rgb(360,360,360,0.6);
   border-radius: 30px;
-  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 5vh;
   font-size: 1.5rem;
   border: solid;
+}
+
+#longScore{
+  padding: 3vh;
+  font-size: 1rem;
 }

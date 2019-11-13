@@ -97,6 +97,7 @@ function add(){
 }
 
 function cardDraw(person){
+    if (dealer.win == false && player.win == false){
     var num = Math.floor(Math.random()*deck.length);
     var drewCard = deck[num];
     if (drewCard.name === "A" && person.points > 10){
@@ -107,6 +108,7 @@ function cardDraw(person){
     person.points = person.points + drewCard.value;
     document.getElementById(person.name).innerHTML = person.points;
     document.getElementById(person.name + "Card" + person.cards.length).src = "deck/" + drewCard.cardImg;
+}
 }
 
 
@@ -121,15 +123,17 @@ function checkScorePlayer(){
 function checkScoreDealer(){
     if (dealer.points > 21) {
         player.win = true;
-        scoreWin.innerHTML = "You won!";
+        scoreWin.innerHTML = "You win! This time...";
         scoreWin.hidden = false;
     } else if (player.blackJack == true && dealer.blackJack == false) {
         player.win = true;
-        scoreWin.innerHTML = "You won!";
-         scoreWin.hidden = false;
+        scoreWin.innerHTML = "BlackJack! You win... this time";
+        scoreWin.id = 'longScore';
+        scoreWin.hidden = false;
     } else if (player.blackJack == false && dealer.blackJack == true){
         dealer.win = true;
-        scoreLoose.innerHTML = "The dealer won...";
+        scoreLoose.innerHTML = "Dealer's BlackJack! You loose more than just a game...";
+        scoreLoose.id = 'longScore';
         scoreLoose.hidden = false;
     } else if (player.blackJack == true && dealer.blackjack == true){
         dealer.win = true;
@@ -139,17 +143,16 @@ function checkScoreDealer(){
     } else if (dealer.points > 16){
         if (player.points > dealer.points) {
         player.win = true;
-        scoreWin.innerHTML = "You won!";
+        scoreWin.innerHTML = "You win! This time...";
         scoreWin.hidden = false;
     } else if (player.points < dealer.points){
         dealer.win = true;
-        scoreLoose.innerHTML = "The dealer won...";
+        scoreLoose.innerHTML = "The dealer won. You loose more than just a game...";
+        scoreLoose.id = 'longScore';
         scoreLoose.hidden = false;
-
     } else {dealer.win = true;
         player.win = true;
         scoreLoose.innerHTML = "A tie.";
-        scoreLoose.hidden = false;
-        console.log('7')}
+        scoreLoose.hidden = false;}
     } 
 }
