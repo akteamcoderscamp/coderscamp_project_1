@@ -99,7 +99,7 @@
 }
 
 .dot{
-    background-color: rgb(226, 189, 109);
+    background-color: rgb(84, 168, 126);
     margin: 0 0.3vw;
     width: 3vw;
     height: 6vh;
@@ -107,7 +107,7 @@
 }
 
 .redDot{
-    background-color: rgb(196, 6, 6);
+    background-color: rgb(33, 66, 50);
 }
 
 .game{
@@ -231,5 +231,5 @@
 }
 
 #win{
-    color: white;
+    color: rgb(87, 253, 66);
 }

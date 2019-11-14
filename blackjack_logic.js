@@ -126,17 +126,14 @@ function checkScoreDealer(){
     if (dealer.points > 21) {
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
-        scoreWin.hidden = false;
         winWindow.style.display = 'initial';
     } else if (player.blackJack == true && dealer.blackJack == false) {
         player.win = true;
         scoreWin.innerHTML = "BlackJack! You win... this time";
-        scoreWin.id = 'longScore';
         winWindow.style.display = 'initial';
     } else if (player.blackJack == false && dealer.blackJack == true){
         dealer.win = true;
         scoreLoose.innerHTML = "Dealer's BlackJack! You loose more than just a game...";
-        scoreLoose.id = 'longScore';
         looseWindow.style.display = 'initial';
     } else if (player.blackJack == true && dealer.blackjack == true){
         dealer.win = true;
@@ -151,7 +148,6 @@ function checkScoreDealer(){
     } else if (player.points < dealer.points){
         dealer.win = true;
         scoreLoose.innerHTML = "The dealer won. You loose more than just a game...";
-        scoreLoose.id = 'longScore';
         looseWindow.style.display = 'initial';
     } else {dealer.win = true;
         player.win = true;
