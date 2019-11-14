@@ -27,9 +27,11 @@ var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
 //okienko z wynikiem?
 let scoreWin = document.getElementById('win')
-scoreWin.hidden = true;
 let scoreLoose = document.getElementById('loose')
-scoreLoose.hidden = true;
+let winWindow = document.getElementById('winWindow')
+winWindow.style.display = 'none';
+let looseWindow = document.getElementById('looseWindow')
+looseWindow.style.display = 'none';
 
 //gra
 createDeck();
@@ -116,7 +118,7 @@ function checkScorePlayer(){
     if (player.points > 21) {
         dealer.win = true;
         scoreLoose.innerHTML = "BUST - You lost";
-        scoreLoose.hidden = false;
+        looseWindow.style.display = 'initial';
     } 
 }
 
@@ -125,34 +127,35 @@ function checkScoreDealer(){
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
         scoreWin.hidden = false;
+        winWindow.style.display = 'initial';
     } else if (player.blackJack == true && dealer.blackJack == false) {
         player.win = true;
         scoreWin.innerHTML = "BlackJack! You win... this time";
         scoreWin.id = 'longScore';
-        scoreWin.hidden = false;
+        winWindow.style.display = 'initial';
     } else if (player.blackJack == false && dealer.blackJack == true){
         dealer.win = true;
         scoreLoose.innerHTML = "Dealer's BlackJack! You loose more than just a game...";
         scoreLoose.id = 'longScore';
-        scoreLoose.hidden = false;
+        looseWindow.style.display = 'initial';
     } else if (player.blackJack == true && dealer.blackjack == true){
         dealer.win = true;
         player.win = true;
         scoreLoose.innerHTML = "A tie.";
-        scoreLoose.hidden = false;
+        looseWindow.style.display = 'initial';
     } else if (dealer.points > 16){
         if (player.points > dealer.points) {
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
-        scoreWin.hidden = false;
+        winWindow.style.display = 'initial';
     } else if (player.points < dealer.points){
         dealer.win = true;
         scoreLoose.innerHTML = "The dealer won. You loose more than just a game...";
         scoreLoose.id = 'longScore';
-        scoreLoose.hidden = false;
+        looseWindow.style.display = 'initial';
     } else {dealer.win = true;
         player.win = true;
         scoreLoose.innerHTML = "A tie.";
-        scoreLoose.hidden = false;}
+        looseWindow.style.display = 'initial';}
     } 
 }
