@@ -16,10 +16,13 @@ section{
     background-color: beige;
 }
 div{
+    display: flex;
     width: 11.111%;
     height: 11.111%;
     background-color: rgb(161, 115, 98);
-    border: 1px solid sienna
+    border: 1px solid sienna;
+    justify-content: center;
+    align-items: center;
 }
 
 .bomb{
