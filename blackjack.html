@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>BlackJack: History</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Rules and history" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styleBlackJack.css">
+</head>
+
+<body>
+    <img class="bg" src="img/table.png">
+    <div class="cover">
+        <div class="textBox">
+            <div class="heading">
+                <div class="dots">
+                    <a href="BJ_rules.html">
+                        <div class="dot"></div>
+                    </a>
+                    <a href="BJ_rules2.html">
+                        <div class="dot"></div>
+                    </a>
+                    <a href="BJ_history.html">
+                        <div class="dot"></div>
+                    </a>
+                    <div class="dot redDot"></div>
+                </div>
+            </div>
+
+            <div class="game">
+
+                <div class="pointsArea">
+                    <div class="points numDealerPoints">
+                        <p id="Dealer">0</p>
+                    </div>
+                    <div class="points numPlayerPoints">
+                        <p id="Player">0</p>
+                    </div>
+                </div>
+
+                <div class="cardsArea">
+
+                    <div class="dealerCardsArea">
+                        <div class="card dealerCard1"><img id="DealerCard1"></div>
+                        <div class="card dealerCard2"><img src="img/green_back.png" id="DealerCard2"></div>
+                        <div class="card dealerCard3"><img id="DealerCard3"></div>
+                        <div class="card dealerCard4"><img id="DealerCard4"></div>
+                        <div class="card dealerCard5"><img id="DealerCard5"></div>
+                        <div class="card dealerCard6"><img id="DealerCard6"></div>
+                    </div>
+
+                    <div class="playerCardsArea">
+                        <div class="card playerCard1"><img id="PlayerCard1"></div>
+                        <div class="card playerCard2"><img id="PlayerCard2"></div>
+                        <div class="card playerCard3"><img id="PlayerCard3"></div>
+                        <div class="card playerCard4"><img id="PlayerCard4"></div>
+                        <div class="card playerCard5"><img id="PlayerCard5"></div>
+                        <div class="card playerCard6"><img id="PlayerCard6"></div>
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+                    <div class="btnField">
+                        <div onclick="add();" class="add btnRound"><img src="img/plus.png"></div>
+                    </div>
+
+                    <div class="btnField">
+                        <div onclick="hold();" class="hold btnRound"><img src="img/hand.png"></div>
+                    </div>
+                </div>
+
+                <a href="">
+                    <div id="winWindow" class="scoreWindow">
+                        <div class="covcov">
+                        <p id="win">Put the score here</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="tryAgain.html">
+                    <div id="looseWindow" class="scoreWindow">
+                        <div class="covcov">
+                        <p id="loose">Put the score here</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="blackjack_logic.js"></script>
+
+</body>
+
+</html>

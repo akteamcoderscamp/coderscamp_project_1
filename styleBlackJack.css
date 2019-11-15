@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Roboto;
+    text-align: center;
+    color: #5E321F;
+}
+
+a {
+    text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: #5E321F;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.5vw;
+    line-height: 1.6;
+    letter-spacing: 0.05rem;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cover {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+.textBox {
+    width: 80%;
+    height: 80%;
+    background: rgba(209, 208, 207, 0.795);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+.heading {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.dots {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+}
+
+.dot {
+    background-color: rgb(84, 168, 126);
+    margin: 0 0.3vw;
+    width: 3vw;
+    height: 6vh;
+    border-radius: 50%;
+}
+
+.redDot {
+    background-color: rgb(33, 66, 50);
+}
+
+.game {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    justify-content: space-around;
+}
+
+.pointsArea {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.points {
+    background: rgba(156, 82, 49, 0.7);
+    width: 100%;
+    height: 10%;
+}
+
+.points p {
+    margin: 0;
+    height: 100%;
+    padding: 3%;
+}
+
+.cardsArea {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dealerCardsArea {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playerCardsArea {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 16%;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+}
+
+.buttons {
+    width: 13%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.btnField {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnRound {
+    width: 90%;
+    height: 60%;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #f4f4f479;
+}
+
+.btnRound img {
+    margin: 7% 0;
+}
+
+.add img {
+    width: 80%;
+    height: 80%;
+}
+
+.hold {
+    padding-right: 10%;
+    display: initial;
+}
+
+.hold img {
+    width: 90%;
+    height: 80%;
+}
+
+.scoreWindow {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    font-weight: bold;
+    font-size: 190%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #000000d7;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.covcov{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#winWindow{
+display: none;
+}
+
+#looseWindow{
+display: none;
+}
+
+#loose {
+    color: rgb(196, 6, 6);
+    margin: 0;
+}
+
+#win {
+    color: white;
+    margin: 0;
+}
