@@ -1,0 +1,62 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.5vw;
+    line-height: 1.6;
+    letter-spacing: 0.05rem;
+    font-family: "Raleway", Sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    position: relative;
+    position: center;
+    margin-left: 20%;
+}
+
+.bigbox {
+    background-image: url(img/saper.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+.story {
+    border-radius: 3vw;
+    background: rgba(209, 208, 207, 0.795);
+    padding: 2%;
+    width: 80%;
+    height: 70%;
+    text-align: center;
+}
+
+.circle {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    float: right;
+    width: 25%;
+    height: 10%;
+}
+
+.buttoncircle {
+    display: block;
+    width: 14%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: rgb(167, 150, 135);
+    border: transparent;
+}
+
+.buttoncircle:nth-child(2) {
+    background-color: coral;
+}
