@@ -93,7 +93,7 @@ function goToQuestion() {
     <div class="textBox op1" onclick="goToSaperRules()">
         <p>Save the family members</p>
     </div>
-    <div class="textBox op2" onclick="goToBlackJackRules()">
+    <div class="textBox op2" onclick="goToBlackJackRules1()">
         <p>Save 10 innocent people</p>
     </div>
 
@@ -120,17 +120,17 @@ function goToQuestion() {
 
 }
 
-function goToBlackJackRules() {
+
+function goToBlackJackRules1() {
     var AppBox = document.getElementById("app");
     var css_file = document.getElementById('');
-    // css_file.setAttribute('href', 'izastyle.css');
     AppBox.innerHTML = `<img class="bg" src="img/table.png">
     <div class="cover">
     <div class="textBox">
       <div class="heading">
           <div class="dots">
           <div class="dot redDot"></div>
-          <div class="dot" onclick="goTo"></div>
+          <div class="dot" onclick="goToBlackJackRules2()"></div>
           <div class="dot"></div>
           <div class="dot"></div>
           </div>
@@ -150,6 +150,66 @@ function goToBlackJackRules() {
       </div>
     </div>
     </div>`
+}
+
+function goToBlackJackRules2() {
+    var AppBox = document.getElementById("app");
+    var css_file = document.getElementById('');
+    AppBox.innerHTML = `<img class="bg" src="img/table.png">
+    <div class="cover">
+    <div class="textBox">
+      <div class="heading">
+          <div class="dots">
+          <div class="dot"></div>
+          <div class="dot redDot"></div>
+          <div class="dot" onclick="goToBlackJackHistory()"></div>
+          <div class="dot"></div>
+          </div>
+          <header class="bigHeader">Rules</header>
+        <div class="dots"></div>
+      </div>
+        <header class="mediumHeader">Game end</header>
+      <div class="content">
+        <div class="picture">
+        <img class="rulesImg" src="img/gameOver.jpg">
+        </div>
+        <div class="text">
+            <p>The objective of the game is to beat the dealer in one of the following ways:
+            <ul>
+              <li>Get 21 points on the player's first two cards (called a "blackjack" or "natural"), without a dealer blackjack;</li>
+              <li>Reach a final score higher than the dealer while exceeding 17 points and without going over 21;</li>
+              <li>Let the dealer draw additional cards until their hand exceeds 21 ("busted").</li>
+              </ul>
+            </p>
+        </div>
+      </div>
+    </div>
+    </div>`
+}
+
+function goToBlackJackHistory() {
+    var AppBox = document.getElementById("app");
+    var css_file = document.getElementById('');
+    AppBox.innerHTML = `<img class="bg" src="img/table.png">
+    <div class="cover">
+    <div class="textBox">
+      <div class="heading">
+          <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot redDot""></div>
+          <div class="dot" onclick="goToBlackJack()"></div>
+          </div>
+          <header class="bigHeader">History</header>
+          <div class="dots"></div>
+        </div>
+          <p>
+          Blackjack's precursor was twenty-one, a game of unknown origin. The first written reference is found in a book by the Spanish author Miguel de Cervantes, most famous for writing Don Quixote. Cervantes was a gambler, and the main characters of his tale "Rinconete y Cortadillo", are a couple of cheats working in Seville. They are proficient at cheating at veintiuna (Spanish for twenty-one), and state that the object of the game is to reach 21 points without going over and that the ace values 1 or 11. This short story was written between 1601 and 1602, implying that ventiuna was played in Castile since the beginning of the 17th century or earlier. Later references to this game are found in France and Spain.<br>
+          When twenty-one was introduced in the United States, gambling houses offered bonus payouts to stimulate players' interest. One such bonus was a ten-to-one payout if the player's hand consisted of the ace of spades and a black jack. This hand was called a "blackjack", and the name stuck to the game even though the ten-to-one bonus was soon withdrawn. In the modern game, a blackjack refers to any hand of an ace plus a ten or face card regardless of suits or colors.
+          
+          </p>
+      </div>
+      </div>`
 }
 
 function goToSaperRules() {
@@ -208,31 +268,19 @@ function goToSaperGame() {
 }
 
 
-//reszta stron
-
-
-
-
-
 function goToBlackJack() {
     var AppBox = document.getElementById("app");
     var css_file = document.getElementById('css_file');
     css_file.setAttribute('href', 'styleBlackJack.css');
-    AppBox.innerHTML = ` <img class="bg" src="img/table.png">
+    AppBox.innerHTML = `<img class="bg" src="img/table.png">
     <div class="cover">
         <div class="textBox">
             <div class="heading">
                 <div class="dots">
-                    <a href="BJ_rules.html">
-                        <div class="dot"></div>
-                    </a>
-                    <a href="BJ_rules2.html">
-                        <div class="dot"></div>
-                    </a>
-                    <a href="BJ_history.html">
-                        <div class="dot"></div>
-                    </a>
-                    <div class="dot redDot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot redDot"></div>
                 </div>
             </div>
 
@@ -281,21 +329,23 @@ function goToBlackJack() {
 
                 <a href="">
                     <div id="winWindow" class="scoreWindow">
+                        <div class="covcov">
                         <p id="win">Put the score here</p>
+                        </div>
                     </div>
                 </a>
 
                 <a href="tryAgain.html">
                     <div id="looseWindow" class="scoreWindow">
+                    <div class="covcov">
                         <p id="loose">Put the score here</p>
+                    </div>
                     </div>
                 </a>
 
             </div>
         </div>
     </div> `
-
-    // poczekaj, pobiorę sobie to :)
 }
 // ciekawe, czasem nie rozumiem jak komputer wie skad ma brać te rzeczy 
 //kurcze no, nie działą
