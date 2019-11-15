@@ -8,7 +8,7 @@ const columns = 9;
 const amountOfElements = rows * columns;
 var squareDivs = document.querySelectorAll("div");
 var amountOfShowedElements = 0;
-
+var clickedElements = [];
 
 class Square {
     constructor(ifBomb, value, checked) {
@@ -57,11 +57,12 @@ function uncover(x, y) {
     removeFlag(x * columns + y);
     squareDivs[x * columns + y].classList.add("showed");
     amountOfShowedElements++;
+    clickedElements.push(x * columns + y);
     if (gameBoard[x][y].value != 0) {
         squareDivs[x * columns + y].innerHTML = gameBoard[x][y].value;
     }
     win();
-    if (gameBoard[x][y].value == 0) {
+    if (gameBoard[x][y].ifBomb != 1 && gameBoard[x][y].value == 0) {
         if (y > 0 && gameBoard[x][y].checked === false)
             uncover(x, y - 1);
         if (y < (columns - 1) && gameBoard[x][y + 1].checked === false)
@@ -168,28 +169,33 @@ console.log(squareDivs)
 
 for (let i = 0; i < squareDivs.length; i++) {
     squareDivs[i].addEventListener("click", function () {
-        console.log(amountOfShowedElements)
         // rowCurrent*columns+columnCurrent  <- określenie indeksu dla wiersza i kolumny
-        let columnCurrent = i % columns;
-        let rowCurrent = (i - columnCurrent) / rows;
-        if (gameBoard[rowCurrent][columnCurrent].ifBomb === 1) {
-            for (let j = 0; j < ifSquare.length; j++) {
-                removeFlag(ifSquare[j]);
-                squareDivs[ifSquare[j]].classList.add("bomb");
+        if (clickedElements.includes(i) === false) {
+            let columnCurrent = i % columns;
+            let rowCurrent = (i - columnCurrent) / rows;
+            if (gameBoard[rowCurrent][columnCurrent].ifBomb === 1) {
+                for (let j = 0; j < ifSquare.length; j++) {
+                    removeFlag(ifSquare[j]);
+                    squareDivs[ifSquare[j]].classList.add("bomb");
+                }
+                alert('KONIEC');
+            } else if (gameBoard[rowCurrent][columnCurrent].value != 0) {
+                removeFlag(i);
+                squareDivs[i].classList.add("showed");
+                squareDivs[i].innerHTML = gameBoard[rowCurrent][columnCurrent].value;
+                amountOfShowedElements++;
+                clickedElements.push(i);
+                win();
+            } else {
+                uncover(rowCurrent, columnCurrent);
             }
-            alert('KONIEC');
-        } else if (gameBoard[rowCurrent][columnCurrent].value != 0) {
-            removeFlag(i);
-            squareDivs[i].classList.add("showed");
-            squareDivs[i].innerHTML = gameBoard[rowCurrent][columnCurrent].value;
-            amountOfShowedElements++;
-            win();
-        } else {
-            uncover(rowCurrent, columnCurrent);
         }
     });
     squareDivs[i].addEventListener("contextmenu", function () {
-        squareDivs[i].classList.add("flag");
+        if (clickedElements.includes(i) === false) {
+            console.log(clickedElements)
+            squareDivs[i].classList.add("flag");
+        }
     });
 }
 

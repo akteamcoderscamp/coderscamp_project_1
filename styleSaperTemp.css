@@ -11,9 +11,8 @@ section{
     display: flex;
     flex-wrap: wrap;
     margin: auto auto;
-    width: 50vw;
-    height: 50vw;
-    background-color: beige;
+    width: 50vh;
+    height: 50vh;
 }
 div{
     display: flex;
