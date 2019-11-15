@@ -36,98 +36,122 @@ createDeck();
 settingCards();
 
 
-function createDeck() {
-    for (i = 0; i < suits.length; i++) {
-        for (j = 2; j < 15; j++) {
-            if (j < 11) {
+function createDeck(){
+    for (i = 0; i < suits.length; i++){
+        for (j = 2; j < 15 ; j++){
+            if(j < 11){
                 var value = j;
                 var name = value.toString();
-            } else if (j < 14) {
+            }else if (j < 14){
                 value = 10;
-                switch (j) {
-                    case 11:
-                        name = "J";
-                        break;
-                    case 12:
-                        name = "Q";
-                        break;
-                    case 13:
-                        name = "K";
+                switch (j){
+                    case 11: name="J";
+                    break;
+                    case 12: name="Q";
+                    break;
+                    case 13: name="K";
                 }
-            } else {
-                value = [1, 11];
+            }else {
+                value = 11; //Default for Ace will be 11, decreased later in a game to 1 if needed
                 name = "A"
             }
-            var cardImg = name + suits[i].charAt(0) + ".png";
-            const newCard = new card(suits[i], name, value, cardImg);
+        var cardImg = name + suits[i].charAt(0) + ".png";
+        const newCard = new card (suits[i], name, value, cardImg);
 
-            deck.push(newCard)
+        deck.push(newCard)
         }
-
+        
     }
 
 }
 
 //we draw 2 cards for player and 1 for dealer(one that is hiden isn't draw yet - easier for showing score)
-function settingCards() {
-    cardDraw(player);
-    cardDraw(player);
-    player.blackJack = checkBlackJack(player);
-    cardDraw(dealer);
-    if (checkBlackJack(player)) {
+function settingCards(){
+        cardDraw(player);
+        cardDraw(player);
+        player.blackJack = checkBlackJack(player);
+        changePointsForAces(player);  //the case where player gets 2 Aces in firs round
+        cardDraw(dealer);
+        //adding green card to the flexbox container
+        const newDiv = document.createElement('div');
+        const newImg = document.createElement('img');
+        newImg.src = "deck/green_back.png";
+        newImg.id = "hiddenCard";
+        newDiv.className = "card";
+        newDiv.appendChild(newImg);
+        document.getElementById("DealerCards").appendChild(newDiv);
+        
+    if (checkBlackJack(player)){
         hold();
-    }
+    } 
 }
 
 
-function hold() {
+function hold(){
+    //remove hidden(green) card
+    document.getElementById("hiddenCard").remove();
+    //draw 2nd dealer card - the dealers face-down card is turned up.
     if (dealer.cards.length === 1) {
         cardDraw(dealer)
-    } //draw 2nd dealer card - the dealers face-down card is turned up.
+    }  
     dealer.blackJack = checkBlackJack(dealer)
-    if (dealer.blackJack) checkScoreDealer();
     checkScoreDealer();
-    while (dealer.points < 17) {
-        cardDraw(dealer);
+    while (dealer.points < 17){
+        //TODO: make wait here around 0,5s so dealer cards will be noticed I tried setTimeout(cardDraw(dealer),500);     
+        cardDraw(dealer);      
         checkScoreDealer();
     }
-}
+    }
 
-
-function add() {
+function add(){
     if (player.points < 21) {
-        cardDraw(player);
-        checkScorePlayer();
+       cardDraw(player);
+       checkScorePlayer();
     }
 }
 
-function cardDraw(person) {
-    if (dealer.win == false && player.win == false) {
-        var num = Math.floor(Math.random() * deck.length);
+function cardDraw(person){
+    if (dealer.win == false && player.win == false){
+        var num = Math.floor(Math.random()*deck.length);
         var drewCard = deck[num];
-        if (drewCard.name === "A" && person.points > 10) {
-            drewCard.value = 1;
-        } else if (drewCard.name === "A" && person.points <= 10) {
-            drewCard.value = 11;
-        }
+        deck.splice(num,1);  //remove the card from the deck
         person.cards.push(drewCard);
         person.points = person.points + drewCard.value;
         document.getElementById(person.name).innerHTML = person.points;
-        document.getElementById(person.name + "Card" + person.cards.length).src = "deck/" + drewCard.cardImg;
-        console.log()
-    }
+
+        const newDiv = document.createElement('div');
+        const newImg = document.createElement('img');
+        newImg.src = "deck/" + drewCard.cardImg;
+        newDiv.className = "card"
+        newDiv.appendChild(newImg);
+        document.getElementById(person.name + "Cards").appendChild(newDiv);
+
+}
 }
 
 
-function checkScorePlayer() {
+function changePointsForAces(person){
+    if(person.points > 21){
+        let ace = person.cards.find(ace => ace.value == 11); //find the Ace
+        if (typeof ace !== 'undefined'){  //if Ace was find
+            ace.value = 1;      //change it's value so it won't be found next time
+            person.points -= 10;
+            document.getElementById(person.name).innerHTML = person.points;
+        }
+    }
+}
+
+function checkScorePlayer(){
+    changePointsForAces(player);
     if (player.points > 21) {
         dealer.win = true;
         scoreLoose.innerHTML = "BUST - You lost";
         looseWindow.style.display = 'initial';
-    }
+    } 
 }
 
-function checkScoreDealer() {
+function checkScoreDealer(){
+    changePointsForAces(dealer);
     if (dealer.points > 21) {
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
