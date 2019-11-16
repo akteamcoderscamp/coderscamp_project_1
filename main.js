@@ -134,10 +134,10 @@ function goToBlackJackRules1() {
           <div class="dot"></div>
           <div class="dot"></div>
           </div>
-          <header class="bigHeader">Rules</header>
+          <header class="bigHeader">BlackJack</header>
           <div class="dots"></div>
       </div>
-        <header class="mediumHeader">Card Values</header>
+        <header class="mediumHeader">Rules - Card Values</header>
       <div class="content">
         <div class="picture">
           <img class="rulesImg" src="img/cardValues.png">
@@ -165,10 +165,10 @@ function goToBlackJackRules2() {
           <div class="dot" onclick="goToBlackJackHistory()"></div>
           <div class="dot"></div>
           </div>
-          <header class="bigHeader">Rules</header>
+          <header class="bigHeader">BlackJack</header>
         <div class="dots"></div>
       </div>
-        <header class="mediumHeader">Game end</header>
+        <header class="mediumHeader">Rules - Game end</header>
       <div class="content">
         <div class="picture">
         <img class="rulesImg" src="img/gameOver.jpg">
@@ -200,11 +200,12 @@ function goToBlackJackHistory() {
           <div class="dot redDot""></div>
           <div class="dot" onclick="goToBlackJack()"></div>
           </div>
-          <header class="bigHeader">History</header>
+          <header class="bigHeader">BlackJack</header>
           <div class="dots"></div>
         </div>
+        <header class="mediumHeader">History</header>
           <p>
-          Blackjack's precursor was twenty-one, a game of unknown origin. The first written reference is found in a book by the Spanish author Miguel de Cervantes, most famous for writing Don Quixote. Cervantes was a gambler, and the main characters of his tale "Rinconete y Cortadillo", are a couple of cheats working in Seville. They are proficient at cheating at veintiuna (Spanish for twenty-one), and state that the object of the game is to reach 21 points without going over and that the ace values 1 or 11. This short story was written between 1601 and 1602, implying that ventiuna was played in Castile since the beginning of the 17th century or earlier. Later references to this game are found in France and Spain.<br>
+          Blackjack's precursor was twenty-one, a game of unknown origin. The first written reference is found in a book by the Spanish author Miguel de Cervantes, most famous for writing Don Quixote. Cervantes was a gambler, and the main characters of his tale "Rinconete y Cortadillo", are a couple of cheats working in Seville. They are proficient at cheating at veintiuna (Spanish for twenty-one), and state that the object of the game is to reach 21 points without going over and that the ace values 1 or 11. This short story was written between 1601 and 1602, implying that ventiuna was played in Castile since the beginning of the 17th century or earlier<br>
           When twenty-one was introduced in the United States, gambling houses offered bonus payouts to stimulate players' interest. One such bonus was a ten-to-one payout if the player's hand consisted of the ace of spades and a black jack. This hand was called a "blackjack", and the name stuck to the game even though the ten-to-one bonus was soon withdrawn. In the modern game, a blackjack refers to any hand of an ace plus a ten or face card regardless of suits or colors.
           
           </p>
@@ -300,7 +301,7 @@ function goToBlackJack() {
 
                     <div class="dealerCardsArea">
                         <div class="card dealerCard1"><img id="DealerCard1"></div>
-                        <div class="card dealerCard2"><img src="deck/green_back.png" id="DealerCard2"></div>
+                        <div class="card dealerCard2"><img src="img/green_back.png" id="DealerCard2"></div>
                         <div class="card dealerCard3"><img id="DealerCard3"></div>
                         <div class="card dealerCard4"><img id="DealerCard4"></div>
                         <div class="card dealerCard5"><img id="DealerCard5"></div>
