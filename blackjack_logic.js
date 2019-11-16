@@ -120,10 +120,7 @@ function cardDraw(person){
         deck.splice(num,1);  //remove the card from the deck
         person.cards.push(drewCard);
         person.points = person.points + drewCard.value;
-        console.log(person.name)
-        console.log(document.getElementById(person.name))
         document.getElementById(person.name).innerHTML = person.points;
-        console.log('mis4')
         const newDiv = document.createElement('div');
         const newImg = document.createElement('img');
         newImg.src = "deck/" + drewCard.cardImg;
