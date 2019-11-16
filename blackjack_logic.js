@@ -25,11 +25,6 @@ class card {
 var deck = new Array();
 var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
-//okienko z wynikiem?
-let scoreWin = document.getElementById('win')
-let scoreLoose = document.getElementById('loose')
-let winWindow = document.getElementById('winWindow')
-let looseWindow = document.getElementById('looseWindow')
 
 //gra
 createDeck();
@@ -154,13 +149,18 @@ function checkScorePlayer(){
     changePointsForAces(player);
     if (player.points > 21) {
         dealer.win = true;
-        scoreLoose.innerHTML = "BUST - You lost";
-        looseWindow.style.display = 'initial';
+        document.getElementById('loose') = "BUST - You lost";
+        document.getElementById('looseWindow') = 'initial';
     } 
 }
 
 function checkScoreDealer(){
     changePointsForAces(dealer);
+    var scoreWin = document.getElementById('win');
+    var scoreLoose = document.getElementById('loose');
+    var winWindow = document.getElementById('winWindow');
+    var looseWindow = document.getElementById('looseWindow');
+    
     if (dealer.points > 21) {
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
