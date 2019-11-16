@@ -26,8 +26,6 @@ var deck = new Array();
 var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
 
-//gra
-createDeck();
 
 function createDeck(){
     for (i = 0; i < suits.length; i++){
@@ -61,6 +59,7 @@ function createDeck(){
 
 function playGame(){
     if (player.cards.length == 0 && dealer.cards.length == 0){
+        createDeck();
         settingCards();
     } else {
         add();
