@@ -79,6 +79,7 @@ function settingCards(){
         newImg.src = "deck/green_back.png";
         newImg.id = "hiddenCard";
         newDiv.className = "card";
+        newDiv.id = "hiddenCardDiv";
         newDiv.appendChild(newImg);
         document.getElementById("DealerCards").appendChild(newDiv);
         
@@ -91,6 +92,7 @@ function settingCards(){
 function hold(){
     //remove hidden(green) card
     document.getElementById("hiddenCard").remove();
+    document.getElementById("hiddenCardDiv").remove();
     //draw 2nd dealer card - the dealers face-down card is turned up.
     if (dealer.cards.length === 1) {
         cardDraw(dealer)
@@ -145,11 +147,13 @@ function changePointsForAces(person){
 }
 
 function checkScorePlayer(){
+    var scoreLoose = document.getElementById('loose');
+    var looseWindow = document.getElementById('looseWindow');
     changePointsForAces(player);
     if (player.points > 21) {
         dealer.win = true;
-        document.getElementById('loose') = "BUST - You lost";
-        document.getElementById('looseWindow') = 'initial';
+        scoreLoose.innerHTML = "BUST - You lost";
+        looseWindow.style.display = 'initial';
     } 
 }
 
