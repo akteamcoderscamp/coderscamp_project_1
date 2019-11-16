@@ -212,6 +212,7 @@ function goToBlackJackHistory() {
       </div>`
 }
 
+
 function goToSaperRules() {
     var AppBox = document.getElementById("app");
     var css_file = document.getElementById('css_file');
@@ -319,7 +320,7 @@ function goToBlackJack() {
 
                 <div class="buttons">
                     <div class="btnField">
-                        <div onclick="add();" class="add btnRound"><img src="img/plus.png"></div>
+                        <div onclick="playGame();" class="add btnRound"><img src="img/plus.png"></div>
                     </div>
 
                     <div class="btnField">

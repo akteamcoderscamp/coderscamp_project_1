@@ -33,8 +33,6 @@ let looseWindow = document.getElementById('looseWindow')
 
 //gra
 createDeck();
-settingCards();
-
 
 function createDeck(){
     for (i = 0; i < suits.length; i++){
@@ -63,6 +61,15 @@ function createDeck(){
         
     }
 
+}
+
+
+function playGame(){
+    if (player.cards.length == 0 && dealer.cards.length == 0){
+        settingCards();
+    } else {
+        add();
+    }
 }
 
 //we draw 2 cards for player and 1 for dealer(one that is hiden isn't draw yet - easier for showing score)
@@ -117,8 +124,10 @@ function cardDraw(person){
         deck.splice(num,1);  //remove the card from the deck
         person.cards.push(drewCard);
         person.points = person.points + drewCard.value;
+        console.log(person.name)
+        console.log(document.getElementById(person.name))
         document.getElementById(person.name).innerHTML = person.points;
-
+        console.log('mis4')
         const newDiv = document.createElement('div');
         const newImg = document.createElement('img');
         newImg.src = "deck/" + drewCard.cardImg;
