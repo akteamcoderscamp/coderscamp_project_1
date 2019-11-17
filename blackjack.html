@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>BlackJack: History</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Rules and history" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styleBlackJack.css">
+</head>
+
+<body>
+    <img class="bg" src="img/table.png">
+    <div class="cover">
+        <div class="textBox">
+            <div class="heading">
+                <div class="dots">
+                    <a href="BJ_rules.html">
+                        <div class="dot"></div>
+                    </a>
+                    <a href="BJ_rules2.html">
+                        <div class="dot"></div>
+                    </a>
+                    <a href="BJ_history.html">
+                        <div class="dot"></div>
+                    </a>
+                    <div class="dot redDot"></div>
+                </div>
+            </div>
+
+            <div class="game">
+
+                <div class="pointsArea">
+                    <div class="points numDealerPoints">
+                        <p id="Dealer">0</p>
+                    </div>
+                    <div class="points numPlayerPoints">
+                        <p id="Player">0</p>
+                    </div>
+                </div>
+
+                <div class="cardsArea">
+
+                  <div id="DealerCards" class="dealerCardsArea"></div>
+                  <div id="PlayerCards" class="playerCardsArea"></div>
+          
+
+                </div>
+
+                <div class="buttons">
+                    <div class="btnField">
+                        <div onclick="add();" class="add btnRound"><img src="img/plus.png"></div>
+                    </div>
+
+                    <div class="btnField">
+                        <div onclick="hold();" class="hold btnRound"><img src="img/hand.png"></div>
+                    </div>
+                </div>
+
+                <a href="">
+                    <div id="winWindow" class="scoreWindow">
+                        <div class="covcov">
+                        <p id="win">Put the score here</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="tryAgain.html">
+                    <div id="looseWindow" class="scoreWindow">
+                        <div class="covcov">
+                        <p id="loose">Put the score here</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="blackjack_logic.js"></script>
+
+</body>
+
+</html>
