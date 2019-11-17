@@ -25,15 +25,6 @@ class card {
 var deck = new Array();
 var suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 
-//okienko z wynikiem?
-let scoreWin = document.getElementById('win')
-let scoreLoose = document.getElementById('loose')
-let winWindow = document.getElementById('winWindow')
-let looseWindow = document.getElementById('looseWindow')
-
-//gra
-createDeck();
-settingCards();
 
 
 function createDeck(){
@@ -65,6 +56,16 @@ function createDeck(){
 
 }
 
+
+function playGame(){
+    if (player.cards.length == 0 && dealer.cards.length == 0){
+        createDeck();
+        settingCards();
+    } else {
+        add();
+    }
+}
+
 //we draw 2 cards for player and 1 for dealer(one that is hiden isn't draw yet - easier for showing score)
 function settingCards(){
         cardDraw(player);
@@ -78,6 +79,7 @@ function settingCards(){
         newImg.src = "deck/green_back.png";
         newImg.id = "hiddenCard";
         newDiv.className = "card";
+        newDiv.id = "hiddenCardDiv";
         newDiv.appendChild(newImg);
         document.getElementById("DealerCards").appendChild(newDiv);
         
@@ -90,6 +92,7 @@ function settingCards(){
 function hold(){
     //remove hidden(green) card
     document.getElementById("hiddenCard").remove();
+    document.getElementById("hiddenCardDiv").remove();
     //draw 2nd dealer card - the dealers face-down card is turned up.
     if (dealer.cards.length === 1) {
         cardDraw(dealer)
@@ -118,7 +121,6 @@ function cardDraw(person){
         person.cards.push(drewCard);
         person.points = person.points + drewCard.value;
         document.getElementById(person.name).innerHTML = person.points;
-
         const newDiv = document.createElement('div');
         const newImg = document.createElement('img');
         newImg.src = "deck/" + drewCard.cardImg;
@@ -142,6 +144,8 @@ function changePointsForAces(person){
 }
 
 function checkScorePlayer(){
+    var scoreLoose = document.getElementById('loose');
+    var looseWindow = document.getElementById('looseWindow');
     changePointsForAces(player);
     if (player.points > 21) {
         dealer.win = true;
@@ -152,6 +156,11 @@ function checkScorePlayer(){
 
 function checkScoreDealer(){
     changePointsForAces(dealer);
+    var scoreWin = document.getElementById('win');
+    var scoreLoose = document.getElementById('loose');
+    var winWindow = document.getElementById('winWindow');
+    var looseWindow = document.getElementById('looseWindow');
+    
     if (dealer.points > 21) {
         player.win = true;
         scoreWin.innerHTML = "You win! This time...";
