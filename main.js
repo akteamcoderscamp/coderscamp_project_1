@@ -265,8 +265,110 @@ Saper first appeared on Windows 3.1 in 1992. It's worth noting that the programm
 function goToSaperGame() {
     var AppBox = document.getElementById("app");
     var css_file = document.getElementById('css_file');
-    css_file.setAttribute('href', 'saper.css');
-    AppBox.innerHTML = ` saper HTML `
+    css_file.setAttribute('href', 'STARYSAPER.css');
+    AppBox.innerHTML = `  
+    <div class="bigbox">
+    <div class="story">
+        <div class="circle">
+            <a href="saperhistory.html" class="buttoncircle"></a>
+            <a href="saperrules.html" class="buttoncircle"></a>
+            <div class="buttoncircle"></div>
+        </div>
+        <p style="color: rgb(85, 76, 68); font-size: 3vw; margin-left: 25%; text-shadow: 0.1vw 0.1vw rgb(85, 76, 68);">
+        Game</p>
+        <div class="control">
+        <section>
+
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+                <v></v>
+    
+            </section>
+    
+    
+
+            
+        </div> 
+        </div>
+        </div>`
 }
 
 
